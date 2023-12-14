@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:chassis_number",
+ "creation": "2023-12-14 10:29:22.180128",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_category_section",
+  "car_model",
+  "chassis_number",
+  "model_year",
+  "column_break_26k8o",
+  "shape",
+  "auction_grade",
+  "package",
+  "section_break_0kd8r",
+  "color",
+  "milage",
+  "cc",
+  "seat_capacity",
+  "column_break_w0bwj",
+  "origin_country",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "car_model",
+   "fieldtype": "Link",
+   "label": "Car Model",
+   "options": "Car Model"
+  },
+  {
+   "fieldname": "chassis_number",
+   "fieldtype": "Data",
+   "label": "Chassis Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "model_year",
+   "fieldtype": "Link",
+   "label": "Model Year",
+   "options": "Model Year"
+  },
+  {
+   "fieldname": "column_break_26k8o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shape",
+   "fieldtype": "Select",
+   "label": "Shape",
+   "options": "Old\nNew"
+  },
+  {
+   "fieldname": "auction_grade",
+   "fieldtype": "Link",
+   "label": "Auction Grade",
+   "options": "Auction Grade"
+  },
+  {
+   "fieldname": "package",
+   "fieldtype": "Data",
+   "label": "Package"
+  },
+  {
+   "fieldname": "section_break_0kd8r",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Information"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Colour"
+  },
+  {
+   "fieldname": "milage",
+   "fieldtype": "Float",
+   "label": "Milage"
+  },
+  {
+   "fieldname": "cc",
+   "fieldtype": "Float",
+   "label": "CC"
+  },
+  {
+   "fieldname": "column_break_w0bwj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "seat_capacity",
+   "fieldtype": "Int",
+   "label": "Seat Capacity"
+  },
+  {
+   "fieldname": "origin_country",
+   "fieldtype": "Link",
+   "label": "Origin Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "vehicle_category_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Category"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-14 10:58:08.837025",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Details",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

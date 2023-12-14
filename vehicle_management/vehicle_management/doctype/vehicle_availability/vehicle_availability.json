@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-12-14 11:24:30.411791",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_info_tab",
+  "naming_series",
+  "posting_date",
+  "vehicle_chassis_no",
+  "vehicle_name",
+  "model_year",
+  "column_break_bbytv",
+  "shape",
+  "auction_grade",
+  "color",
+  "milage",
+  "cc",
+  "description",
+  "car_availability_status_tab",
+  "status",
+  "port_location",
+  "shed_number",
+  "ship_details",
+  "in_house_address",
+  "workshop_address",
+  "other"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_info_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vehicle info"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Naming Series",
+   "options": "CAR-"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle_chassis_no",
+   "fieldtype": "Link",
+   "label": "Vehicle Chassis No",
+   "options": "Vehicle Details"
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.car_model",
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name",
+   "options": "Vehicle Details",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.model_year",
+   "fieldname": "model_year",
+   "fieldtype": "Data",
+   "label": "Model Year",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.shape",
+   "fieldname": "shape",
+   "fieldtype": "Data",
+   "label": "Shape",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.auction_grade",
+   "fieldname": "auction_grade",
+   "fieldtype": "Data",
+   "label": "Auction Grade",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.color",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.milage",
+   "fieldname": "milage",
+   "fieldtype": "Data",
+   "label": "Milage",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.cc",
+   "fieldname": "cc",
+   "fieldtype": "Data",
+   "label": "CC",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.description",
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bbytv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "car_availability_status_tab",
+   "fieldtype": "Tab Break",
+   "label": "Car Availability Status"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Port\"",
+   "fieldname": "port_location",
+   "fieldtype": "Link",
+   "label": "Port Location",
+   "options": "Port Location"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Port\"",
+   "fieldname": "shed_number",
+   "fieldtype": "Data",
+   "label": "Shed Number"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Onship\"",
+   "fieldname": "ship_details",
+   "fieldtype": "Data",
+   "label": "Ship Details"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Inhouse\"",
+   "fieldname": "in_house_address",
+   "fieldtype": "Data",
+   "label": "In House Address"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Workshop\"",
+   "fieldname": "workshop_address",
+   "fieldtype": "Data",
+   "label": "Workshop Address"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Other\"",
+   "fieldname": "other",
+   "fieldtype": "Data",
+   "label": "Other"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPort\nOnship\nInhouse\nWorkshop\nOther"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-14 15:44:44.644204",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Availability",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

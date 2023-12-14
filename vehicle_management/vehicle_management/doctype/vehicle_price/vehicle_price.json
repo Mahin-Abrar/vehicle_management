@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-12-14 16:31:13.821572",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "posting_date",
+  "vehicle_info_section",
+  "vehicle_chassis_no",
+  "vehicle_name",
+  "vehicle_price_tab",
+  "company_price",
+  "customer_price",
+  "sale_price",
+  "other_vehicle_items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "label": "Naming Series",
+   "options": "PR-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "vehicle_info_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Info"
+  },
+  {
+   "fieldname": "vehicle_chassis_no",
+   "fieldtype": "Link",
+   "label": "Vehicle Chassis No",
+   "options": "Vehicle Details"
+  },
+  {
+   "fetch_from": "vehicle_chassis_no.car_model",
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_price_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vehicle Price"
+  },
+  {
+   "fieldname": "company_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Company Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Customer Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sale_price",
+   "fieldtype": "Currency",
+   "label": "Sale Price"
+  },
+  {
+   "fieldname": "other_vehicle_items",
+   "fieldtype": "Table",
+   "label": "Other Vehicle Items",
+   "options": "Other Vehicle Items"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Price",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-14 16:59:30.238036",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Price",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
