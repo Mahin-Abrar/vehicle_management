@@ -16,7 +16,9 @@
    "fieldname": "item",
    "fieldtype": "Link",
    "label": "Item",
-   "options": "Item"
+   "options": "Item",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "quantity",
@@ -44,7 +46,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-12-17 11:08:37.589108",
+ "modified": "2023-12-17 13:00:02.751932",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Other Vehicle Items",

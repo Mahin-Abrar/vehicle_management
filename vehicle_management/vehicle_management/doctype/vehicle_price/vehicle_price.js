@@ -6,7 +6,8 @@ frappe.ui.form.on('Vehicle Price', {
     },
     customer_price: function (frm) {
         calculatePrices(frm);
-    }
+    },
+	
 });
 //calculation for the chil table
 frappe.ui.form.on('Other Vehicle Items', {
@@ -15,15 +16,18 @@ frappe.ui.form.on('Other Vehicle Items', {
     },
     rate: function(frm, cdt, cdn) {
         amount_child(frm, cdt, cdn);
-    }
+    },
+	item: function(frm, cdt, cdn) {
+		$.each(locals[cdt][cdn].other_vehicle_items, function(row) {
+			if (row.item === cdt.item) {
+				frappe.throw('console')
+				frappe.model.delete_doc(cdt, cdn);
+				frm.refresh_field('other_vehicle_items');
+				return false;
+			}
+		});
+	}
 });
-
-
-
-
-
-
-
 
 
 // calculation for the sale price
@@ -44,4 +48,3 @@ function amount_child(frm, cdt, cdn) {
     frappe.model.set_value(cdt, cdn, 'amount', amount);
     frm.refresh_field('other_vehicle_items');
 }
-

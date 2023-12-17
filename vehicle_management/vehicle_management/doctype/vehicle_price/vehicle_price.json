@@ -18,6 +18,9 @@
   "customer_price",
   "sale_price",
   "other_vehicle_items",
+  "totals_section",
+  "items_total",
+  "grand_total",
   "amended_from"
  ],
  "fields": [
@@ -90,12 +93,28 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "totals_section",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total"
+  },
+  {
+   "fieldname": "items_total",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Item's Total"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-14 16:59:30.238036",
+ "modified": "2023-12-17 14:23:58.053337",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Price",
