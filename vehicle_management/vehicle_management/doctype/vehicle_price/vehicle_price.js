@@ -3,33 +3,47 @@
 frappe.ui.form.on('Vehicle Price', {
     company_price: function (frm) {
         calculatePrices(frm);
+        updateTotalAmount(frm);
+        grandTotal (frm);
     },
     customer_price: function (frm) {
         calculatePrices(frm);
+        updateTotalAmount(frm);
+        grandTotal (frm);
     },
+    sale_price: function (frm) {
+        grandTotal (frm);
+    }
 	
 });
-//calculation for the chil table
+//calculation for the child table
 frappe.ui.form.on('Other Vehicle Items', {
     quantity: function(frm, cdt, cdn) {
         amount_child(frm, cdt, cdn);
+        updateTotalAmount(frm);
+        grandTotal (frm);
     },
     rate: function(frm, cdt, cdn) {
         amount_child(frm, cdt, cdn);
+        updateTotalAmount(frm);
+        grandTotal (frm);
     },
-	item: function(frm, cdt, cdn) {
-		$.each(locals[cdt][cdn].other_vehicle_items, function(row) {
-			if (row.item === cdt.item) {
-				frappe.throw('console')
-				frappe.model.delete_doc(cdt, cdn);
-				frm.refresh_field('other_vehicle_items');
-				return false;
-			}
-		});
-	}
+    item: function (frm, cdt, cdn) {
+        duplicateFinder(frm,cdt,cdn);
+        updateTotalAmount(frm);
+        grandTotal (frm);
+    },
+    other_vehicle_items_remove: function (frm) {
+        updateTotalAmount(frm);
+        grandTotal (frm);
+    }
 });
 
 
+
+
+
+// functions
 // calculation for the sale price
 function calculatePrices(frm) {
     let companyPrice = frm.doc.company_price || 0;
@@ -43,8 +57,41 @@ function amount_child(frm, cdt, cdn) {
     let item = locals[cdt][cdn];
     let qty = item.quantity || 0;
     let rate = item.rate || 0;
-    let amount = qty * rate;
+    let amount = qty*rate;
 
     frappe.model.set_value(cdt, cdn, 'amount', amount);
     frm.refresh_field('other_vehicle_items');
+}
+//duplicate
+function duplicateFinder (frm,cdt, cdn){
+    var existingValues = [];
+    var currentRow = locals[cdt][cdn];
+
+    // Iterate through the child table rows
+    frm.doc.other_vehicle_items.forEach(function (row) {
+        let fieldValue = row.item;
+
+        if (existingValues.indexOf(fieldValue) !== -1) {
+            // Clear the field value if a duplicate is found
+            frappe.model.set_value(currentRow.doctype, currentRow.name, 'item', '');
+            frappe.throw(__('Duplicate value in child table: {0}. Field cleared.', [fieldValue]));
+        }else{ 
+        existingValues.push(fieldValue);
+        }
+    });
+}
+//total calculation
+function updateTotalAmount(frm) {
+    let totalAmount = 0;
+    frm.doc.other_vehicle_items.forEach(function (row) {
+        totalAmount += flt(row.amount);
+    });
+    frappe.model.set_value(frm.doctype, frm.docname, 'other_items_total', totalAmount);
+}
+/// Grand total
+function grandTotal (frm) {
+    let salePrice = frm.doc.sale_price || 0;
+    let otherTotal = frm.doc.other_items_total || 0;
+    let grand = salePrice + otherTotal;
+    frm.set_value('grand_total', grand);
 }

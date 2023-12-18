@@ -6,4 +6,3 @@ frappe.ui.form.on('Vehicle Availability', {
                 frm.set_value({'ship_details':'','in_house_address':'','port_location':'','shed_number':'','workshop_address':'','other':''});         
 		}
 });
-
