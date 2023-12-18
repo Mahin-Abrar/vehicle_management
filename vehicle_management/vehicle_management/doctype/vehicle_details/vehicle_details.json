@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "vehicle_category_section",
+  "is_sold",
   "car_model",
   "chassis_number",
   "model_year",
@@ -110,11 +111,17 @@
    "fieldname": "vehicle_category_section",
    "fieldtype": "Section Break",
    "label": "Vehicle Category"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_sold",
+   "fieldtype": "Check",
+   "label": "Is Sold"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-14 10:58:08.837025",
+ "modified": "2023-12-18 12:55:20.223781",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Details",

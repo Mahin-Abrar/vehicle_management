@@ -1,5 +1,6 @@
 // Copyright (c) 2023, Mahin Abrar and contributors
 // For license information, please see license.txt
+
 frappe.ui.form.on('Vehicle Price', {
     company_price: function (frm) {
         calculatePrices(frm);
@@ -13,9 +14,9 @@ frappe.ui.form.on('Vehicle Price', {
     },
     sale_price: function (frm) {
         grandTotal (frm);
-    }
-	
+    },
 });
+
 //calculation for the child table
 frappe.ui.form.on('Other Vehicle Items', {
     quantity: function(frm, cdt, cdn) {
@@ -29,6 +30,7 @@ frappe.ui.form.on('Other Vehicle Items', {
         grandTotal (frm);
     },
     item: function (frm, cdt, cdn) {
+		amount_child(frm, cdt, cdn);
         duplicateFinder(frm,cdt,cdn);
         updateTotalAmount(frm);
         grandTotal (frm);
@@ -38,10 +40,6 @@ frappe.ui.form.on('Other Vehicle Items', {
         grandTotal (frm);
     }
 });
-
-
-
-
 
 // functions
 // calculation for the sale price
@@ -75,23 +73,26 @@ function duplicateFinder (frm,cdt, cdn){
             // Clear the field value if a duplicate is found
             frappe.model.set_value(currentRow.doctype, currentRow.name, 'item', '');
             frappe.throw(__('Duplicate value in child table: {0}. Field cleared.', [fieldValue]));
-        }else{ 
+        } 
         existingValues.push(fieldValue);
-        }
+        
     });
 }
 //total calculation
 function updateTotalAmount(frm) {
     let totalAmount = 0;
+	let totalQuantity = 0;
     frm.doc.other_vehicle_items.forEach(function (row) {
-        totalAmount += flt(row.amount);
+        totalAmount += row.amount;
+		totalQuantity += row.quantity;
     });
-    frappe.model.set_value(frm.doctype, frm.docname, 'other_items_total', totalAmount);
+    frm.set_value('item_amount', totalAmount);
+	frm.set_value('total_quantity', totalQuantity);
 }
 /// Grand total
 function grandTotal (frm) {
     let salePrice = frm.doc.sale_price || 0;
-    let otherTotal = frm.doc.other_items_total || 0;
+    let otherTotal = frm.doc.item_amount || 0;
     let grand = salePrice + otherTotal;
     frm.set_value('grand_total', grand);
 }

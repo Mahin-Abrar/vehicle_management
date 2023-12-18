@@ -28,7 +28,8 @@
   "ship_details",
   "in_house_address",
   "workshop_address",
-  "other"
+  "other",
+  "amended_from"
  ],
  "fields": [
   {
@@ -38,7 +39,7 @@
   },
   {
    "fieldname": "naming_series",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "hidden": 1,
    "in_list_view": 1,
    "label": "Naming Series",
@@ -62,7 +63,6 @@
    "fieldname": "vehicle_name",
    "fieldtype": "Data",
    "label": "Vehicle Name",
-   "options": "Vehicle Details",
    "read_only": 1
   },
   {
@@ -165,11 +165,22 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "\nPort\nOnship\nInhouse\nWorkshop\nOther"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Availability",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-12-14 15:44:44.644204",
+ "modified": "2023-12-18 16:34:08.123548",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",

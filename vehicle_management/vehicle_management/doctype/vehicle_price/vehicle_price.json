@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2023-12-14 16:31:13.821572",
+ "creation": "2023-12-18 16:44:34.928722",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -18,22 +18,17 @@
   "customer_price",
   "sale_price",
   "other_vehicle_items",
+  "item_quantity_and_cost_section",
+  "total_quantity",
+  "column_break_pjkfz",
+  "item_amount",
   "totals_section",
-  "items_total",
-  "other_items_total",
-  "column_break_egctb",
   "grand_total",
   "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Data",
-   "label": "Naming Series",
-   "options": "PR-",
-   "read_only": 1
-  },
-  {
+   "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "label": "Posting Date"
@@ -50,13 +45,6 @@
    "options": "Vehicle Details"
   },
   {
-   "fetch_from": "vehicle_chassis_no.car_model",
-   "fieldname": "vehicle_name",
-   "fieldtype": "Data",
-   "label": "Vehicle Name",
-   "read_only": 1
-  },
-  {
    "fieldname": "vehicle_price_tab",
    "fieldtype": "Tab Break",
    "label": "Vehicle Price"
@@ -64,21 +52,26 @@
   {
    "fieldname": "company_price",
    "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Company Price",
-   "reqd": 1
+   "label": "Company Price"
   },
   {
    "fieldname": "customer_price",
    "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "Customer Price",
-   "reqd": 1
+   "label": "Customer Price"
   },
   {
+   "fetch_from": "vehicle_chassis_no.car_model",
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name",
+   "read_only": 1
+  },
+  {
+   "default": "0",
    "fieldname": "sale_price",
    "fieldtype": "Currency",
-   "label": "Sale Price"
+   "label": "Sale Price",
+   "read_only": 1
   },
   {
    "fieldname": "other_vehicle_items",
@@ -87,14 +80,31 @@
    "options": "Other Vehicle Items"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Vehicle Price",
-   "print_hide": 1,
+   "fieldname": "item_quantity_and_cost_section",
+   "fieldtype": "Section Break",
+   "label": "Item Quantity and Cost"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "total_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Quantity",
    "read_only": 1,
-   "search_index": 1
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "item_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Item Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pjkfz",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "totals_section",
@@ -109,27 +119,26 @@
    "read_only": 1
   },
   {
-   "fieldname": "items_total",
-   "fieldtype": "Currency",
-   "hidden": 1,
-   "label": "Item's Total"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Price",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   },
   {
-   "default": "0",
-   "fieldname": "other_items_total",
-   "fieldtype": "Data",
-   "label": "Other Items Total",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_egctb",
-   "fieldtype": "Column Break"
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "VEH-PUR.-"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-18 10:14:20.491674",
+ "modified": "2023-12-18 17:35:53.181408",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Price",
