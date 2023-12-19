@@ -24,6 +24,7 @@
   "seat_capacity",
   "column_break_w0bwj",
   "origin_country",
+  "customer",
   "description"
  ],
  "fields": [
@@ -116,12 +117,20 @@
    "default": "0",
    "fieldname": "is_sold",
    "fieldtype": "Check",
-   "label": "Is Sold"
+   "label": "Is Sold",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-18 12:55:20.223781",
+ "modified": "2023-12-19 15:19:45.405484",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Details",

@@ -15,6 +15,10 @@ frappe.ui.form.on('Vehicle Price', {
     sale_price: function (frm) {
         grandTotal (frm);
     },
+    on_submit: function (frm){
+        console.log("on_submit");
+    }
+
 });
 
 //calculation for the child table
@@ -96,3 +100,9 @@ function grandTotal (frm) {
     let grand = salePrice + otherTotal;
     frm.set_value('grand_total', grand);
 }
+
+
+
+
+
+

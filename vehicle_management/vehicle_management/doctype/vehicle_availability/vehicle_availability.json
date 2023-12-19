@@ -9,6 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "vehicle_info_tab",
+  "is_sold",
   "naming_series",
   "posting_date",
   "vehicle_chassis_no",
@@ -29,6 +30,7 @@
   "in_house_address",
   "workshop_address",
   "other",
+  "customer",
   "amended_from"
  ],
  "fields": [
@@ -40,10 +42,9 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "hidden": 1,
    "in_list_view": 1,
    "label": "Naming Series",
-   "options": "CAR-"
+   "options": "CAR.-"
   },
   {
    "fieldname": "posting_date",
@@ -175,12 +176,26 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_sold",
+   "fieldtype": "Check",
+   "label": "Is Sold",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-18 16:34:08.123548",
+ "modified": "2023-12-19 15:54:01.146560",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",
