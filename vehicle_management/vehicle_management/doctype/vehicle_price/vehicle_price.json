@@ -58,7 +58,7 @@
   },
   {
    "fieldname": "customer_price",
-   "fieldtype": "Data",
+   "fieldtype": "Currency",
    "label": "Customer Price"
   },
   {
@@ -154,7 +154,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-18 18:03:58.474227",
+ "modified": "2023-12-19 10:07:41.767078",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Price",
@@ -176,5 +176,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
