@@ -7,6 +7,9 @@ frappe.ui.form.on('Vehicle Price', {
         updateTotalAmount(frm);
         grandTotal (frm);
     },
+    is_sold: function (frm) {
+        frm.set_value({'customer':''});
+    },
     customer_price: function (frm) {
         calculatePrices(frm);
         updateTotalAmount(frm);
@@ -15,10 +18,9 @@ frappe.ui.form.on('Vehicle Price', {
     sale_price: function (frm) {
         grandTotal (frm);
     },
-    on_submit: function (frm){
-        console.log("on_submit");
+    before_save: function (frm){
+        checkValue (frm);
     }
-
 });
 
 //calculation for the child table
@@ -46,6 +48,13 @@ frappe.ui.form.on('Other Vehicle Items', {
 });
 
 // functions
+
+function checkValue(frm){
+    let grandValue=frm.doc.grand_total
+    if(grandValue==0.00){
+        frappe.throw("Invalid grand total value")
+    }
+}
 // calculation for the sale price
 function calculatePrices(frm) {
     let companyPrice = frm.doc.company_price || 0;

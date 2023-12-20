@@ -10,6 +10,7 @@
  "field_order": [
   "vehicle_info_tab",
   "is_sold",
+  "customer",
   "naming_series",
   "posting_date",
   "vehicle_chassis_no",
@@ -30,7 +31,6 @@
   "in_house_address",
   "workshop_address",
   "other",
-  "customer",
   "amended_from"
  ],
  "fields": [
@@ -56,6 +56,8 @@
   {
    "fieldname": "vehicle_chassis_no",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Vehicle Chassis No",
    "options": "Vehicle Details"
   },
@@ -197,7 +199,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-20 09:38:44.714777",
+ "modified": "2023-12-20 11:55:05.393159",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",

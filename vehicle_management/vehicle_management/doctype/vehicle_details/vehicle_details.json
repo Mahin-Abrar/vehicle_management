@@ -10,6 +10,7 @@
  "field_order": [
   "vehicle_category_section",
   "is_sold",
+  "customer",
   "car_model",
   "chassis_number",
   "model_year",
@@ -24,7 +25,6 @@
   "seat_capacity",
   "column_break_w0bwj",
   "origin_country",
-  "customer",
   "description"
  ],
  "fields": [
@@ -130,7 +130,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-19 15:19:45.405484",
+ "modified": "2023-12-20 11:55:35.202408",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Details",

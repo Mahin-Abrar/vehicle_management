@@ -13,6 +13,7 @@
   "vehicle_info_section",
   "vehicle_chassis_no",
   "vehicle_name",
+  "column_break_vmsb3",
   "is_sold",
   "customer",
   "vehicle_price_tab",
@@ -44,7 +45,8 @@
    "fieldname": "vehicle_chassis_no",
    "fieldtype": "Link",
    "label": "Vehicle Chassis No",
-   "options": "Vehicle Details"
+   "options": "Vehicle Details",
+   "reqd": 1
   },
   {
    "fieldname": "vehicle_price_tab",
@@ -149,12 +151,16 @@
    "label": "Customer",
    "mandatory_depends_on": "eval:doc.is_sold==true",
    "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_vmsb3",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-19 10:07:41.767078",
+ "modified": "2023-12-20 12:05:25.498395",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Price",
