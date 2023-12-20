@@ -178,6 +178,7 @@
    "search_index": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "is_sold",
    "fieldtype": "Check",
@@ -185,6 +186,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
    "label": "Customer",
@@ -195,7 +197,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-19 15:54:01.146560",
+ "modified": "2023-12-20 09:38:44.714777",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",
