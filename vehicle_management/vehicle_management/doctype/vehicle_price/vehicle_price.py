@@ -25,7 +25,6 @@ class VehiclePrice(Document):
     def add_vehicle_availability(self):
             p_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')
             doc2= frappe.get_doc('Vehicle Availability',p_key)
-            doc2=frappe.get_doc('Vehicle Availability',p_key)
             doc2.customer = self.customer
             doc2.is_sold = self.is_sold
             doc2.save()
