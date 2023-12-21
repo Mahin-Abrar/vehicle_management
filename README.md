@@ -1,6 +1,6 @@
 ## Vehicle Management
 
-An app for the management of vehicles in various Inventory
+An app for the management of vehicles in various Inventoryon Frappe ErpNext
 
 #### License
 
