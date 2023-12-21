@@ -20,6 +20,9 @@ frappe.ui.form.on('Vehicle Price', {
     },
     before_save: function (frm){
         checkValue (frm);
+    },
+    onload:function(frm){
+        filtering (frm);
     }
 });
 
@@ -48,7 +51,17 @@ frappe.ui.form.on('Other Vehicle Items', {
 });
 
 // functions
-
+//functoin for query
+function filtering(frm) {
+    frm.set_query("vehicle_chassis_no", function() {
+        return {
+            "filters": {
+                is_sold:false
+            }
+        };
+    });
+}
+//value check
 function checkValue(frm){
     let grandValue=frm.doc.grand_total
     if(grandValue==0.00){
@@ -109,9 +122,3 @@ function grandTotal (frm) {
     let grand = salePrice + otherTotal;
     frm.set_value('grand_total', grand);
 }
-
-
-
-
-
-

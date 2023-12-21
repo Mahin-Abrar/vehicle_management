@@ -10,7 +10,7 @@
  "icon": "color-energy-points",
  "idx": 0,
  "is_hidden": 0,
- "label": "Vehicle ",
+ "label": "Vehicle_Mng",
  "links": [
   {
    "hidden": 0,
@@ -69,10 +69,10 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-20 14:46:45.383550",
+ "modified": "2023-12-21 09:14:06.236367",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
- "name": "Vehicle ",
+ "name": "Vehicle_Mng",
  "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
@@ -81,5 +81,5 @@
  "roles": [],
  "sequence_id": 2.0,
  "shortcuts": [],
- "title": "Vehicle "
+ "title": "Vehicle_Mng"
 }
