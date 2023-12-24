@@ -63,13 +63,13 @@
    "is_query_report": 0,
    "label": "Vehicle Report",
    "link_count": 0,
-   "link_to": "BOM Stock Report",
+   "link_to": "Vehicle Test 2",
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2023-12-21 09:14:06.236367",
+ "modified": "2023-12-24 13:04:32.026354",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle_Mng",

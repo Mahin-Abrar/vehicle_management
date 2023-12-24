@@ -1,0 +1,27 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-12-24 10:04:03.562753",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2023-12-24 10:04:03.562753",
+ "modified_by": "Administrator",
+ "module": "Vehicle Management",
+ "name": "Vehicle Test1",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    v.chassis_number as \"Chassis Number\",\n    v.car_model as \"Model\",\n    v.model_year as \"Year\",\n    v.shape as \"Shape\",\n    v.auction_grade as \"Grade\",\n    v.package as \"Package\",\n    v.color as \"Colour\",\n    v.milage as \"Milage\",\n    v.cc as \"CC\",\n    v.seat_capacity as \"Seat Capacity\",\n    v.origin_country as \"Origin Country\",\n    va.status as \"Status\",\n    vp.grand_total as \"Total\"\nFROM\n    `tabVehicle Details` v\nINNER JOIN\n    `tabVehicle Availability` va ON v.chassis_number = va.vehicle_chassis_no\nINNER JOIN\n    `tabVehicle Price` vp ON v.chassis_number = vp.vehicle_chassis_no;",
+ "ref_doctype": "Vehicle Price",
+ "report_name": "Vehicle Test1",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}
