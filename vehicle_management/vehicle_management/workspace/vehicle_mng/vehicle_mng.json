@@ -60,16 +60,16 @@
   },
   {
    "hidden": 0,
-   "is_query_report": 0,
+   "is_query_report": 1,
    "label": "Vehicle Report",
    "link_count": 0,
    "link_to": "Vehicle Test 2",
    "link_type": "Report",
-   "onboard": 0,
+   "onboard": 1,
    "type": "Link"
   }
  ],
- "modified": "2023-12-24 13:04:32.026354",
+ "modified": "2023-12-27 10:01:54.227852",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle_Mng",
