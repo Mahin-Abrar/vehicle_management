@@ -25,7 +25,9 @@
   "seat_capacity",
   "column_break_w0bwj",
   "origin_country",
-  "description"
+  "description",
+  "status",
+  "amended_from"
  ],
  "fields": [
   {
@@ -54,7 +56,8 @@
    "fieldname": "shape",
    "fieldtype": "Select",
    "label": "Shape",
-   "options": "Old\nNew"
+   "options": "Old\nNew",
+   "reqd": 1
   },
   {
    "fieldname": "auction_grade",
@@ -126,11 +129,36 @@
    "label": "Customer",
    "options": "Customer",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Details",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "\nTo Availability & Price\nTo Price\nCompleted",
+   "print_hide": 1,
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-12-20 11:55:35.202408",
+ "modified": "2023-12-27 17:29:21.120391",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Details",
@@ -152,5 +180,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
