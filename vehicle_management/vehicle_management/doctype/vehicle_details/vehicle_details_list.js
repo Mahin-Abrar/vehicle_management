@@ -4,5 +4,5 @@ frappe.listview_settings['Vehicle Details'] = {
         if (doc.status == "Draft") {
 			return [__("Submitted"), "green", "status,=,Submitted"];
     }
-  } 
+  }
 };

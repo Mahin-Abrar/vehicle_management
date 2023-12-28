@@ -8,6 +8,13 @@ from frappe import get_all, get_doc
 
 
 class VehiclePrice(Document):
+    def validate(self):
+        self.sale_price = self.customer_price+self.company_price
+        self.grand_total=self.item_amount +self.sale_price
+        for row in self.get('other_vehicle_items'):
+            row.amount=row.quantity*row.rate
+            self.other_items_total += row.amount
+                
     def on_submit(self):
         self.add_vehicle_details()
         self.add_vehicle_availability()
