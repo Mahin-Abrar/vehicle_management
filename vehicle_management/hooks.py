@@ -215,30 +215,30 @@ app_license = "MIT"
 # auth_hooks = [
 #	"vehicle_management.auth.validate"
 # ]
-# fixtures = [
-#     {
-#         "dt": "Custom Field",
-#         "filters": [
-#             [
-#                 "dt",
-#                 "in",
-#                 [
-#                     "Material Request",
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [
+            [
+                "dt",
+                "in",
+                [
+                    "Material Request",
                     
-#                 ],
-#             ]
-#         ],
-#     },
-#     {
-#         "dt": "Property Setter",
-#         "filters": [
-#             [
-#                 "doc_type",
-#                 "in",
-#                 [
-#                     "Material Request"  ,
-#                 ],
-#             ]
-#         ],
-#     },
-# ]
+                ],
+            ]
+        ],
+    },
+    {
+        "dt": "Property Setter",
+        "filters": [
+            [
+                "doc_type",
+                "in",
+                [
+                    "Material Request"  ,
+                ],
+            ]
+        ],
+    },
+]
