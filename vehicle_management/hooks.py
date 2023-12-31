@@ -29,7 +29,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Material Request" : "public/js/stock/material_request.js"}
+# doctype_js = {"Material Request" : "public/js/stock/material_request.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -110,9 +110,9 @@ doctype_js = {"Material Request" : "public/js/stock/material_request.js"}
 # ---------------
 # Override standard doctype classes
 
-override_doctype_class = {
-	"Material Request": "vehicle_management.overrides.stock.material_request.MaterialRequestController"
-}
+# override_doctype_class = {
+# 	"Material Request": "vehicle_management.overrides.stock.material_request.MaterialRequestController"
+# }
 
 # Document Events
 # ---------------
@@ -215,30 +215,30 @@ override_doctype_class = {
 # auth_hooks = [
 #	"vehicle_management.auth.validate"
 # ]
-fixtures = [
-    {
-        "dt": "Custom Field",
-        "filters": [
-            [
-                "dt",
-                "in",
-                [
-                    "Material Request",
+# fixtures = [
+#     {
+#         "dt": "Custom Field",
+#         "filters": [
+#             [
+#                 "dt",
+#                 "in",
+#                 [
+#                     "Material Request",
                     
-                ],
-            ]
-        ],
-    },
-    {
-        "dt": "Property Setter",
-        "filters": [
-            [
-                "doc_type",
-                "in",
-                [
-                    "Material Request"  ,
-                ],
-            ]
-        ],
-    },
-]
+#                 ],
+#             ]
+#         ],
+#     },
+#     {
+#         "dt": "Property Setter",
+#         "filters": [
+#             [
+#                 "doc_type",
+#                 "in",
+#                 [
+#                     "Material Request"  ,
+#                 ],
+#             ]
+#         ],
+#     },
+# ]
