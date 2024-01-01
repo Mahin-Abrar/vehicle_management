@@ -19,6 +19,8 @@ class VehiclePrice(Document):
         self.add_vehicle_details()
         self.add_vehicle_availability()
         self.get_indicator()
+        
+        
     def get_indicator(self):
             vd = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
             vd.status="Completed"
@@ -27,12 +29,22 @@ class VehiclePrice(Document):
     def on_cancel(self):
         self.rmv_vehicle_details()
         self.rmv_vehicle_availability()
-    
+    def on_cancel(self):
+            self.status=''
+            vdc=frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
+            vac_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')
+            vac= frappe.get_doc('Vehicle Availability',vac_key)
+            vac.status='To Price'
+            vdc.status='To Price'
+            vdc.save()
+            vac.save()
+            
     def add_vehicle_details(self):
-         doc = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
-         doc.customer = self.customer
-         doc.is_sold=self.is_sold
-         doc.save()
+         vd_doc = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
+         vd_doc.customer = self.customer
+         vd_doc.is_sold=self.is_sold
+         vd_doc.save()
+
          
     def add_vehicle_availability(self):
             p_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')

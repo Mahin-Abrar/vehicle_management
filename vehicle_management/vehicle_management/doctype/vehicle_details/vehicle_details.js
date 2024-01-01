@@ -6,8 +6,3 @@ frappe.ui.form.on('Vehicle Details', {
     // statusChanger(frm)
 	// }
 });
-// function statusChanger(frm){
-// 	if(frm.doc.docstatus==1){
-// 	frm.doc.status="To Availability & Price"
-// }
-// }

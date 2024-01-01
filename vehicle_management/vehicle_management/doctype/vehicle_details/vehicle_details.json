@@ -118,6 +118,7 @@
    "label": "Vehicle Category"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "is_sold",
    "fieldtype": "Check",
@@ -125,6 +126,7 @@
    "read_only": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
    "label": "Customer",
@@ -145,19 +147,17 @@
    "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
-   "hidden": 1,
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nTo Availability & Price\nTo Price\nCompleted",
-   "read_only": 1
+   "options": "\nTo Availability & Price\nTo Price\nCompleted"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-01 11:43:17.709406",
+ "modified": "2024-01-01 17:59:15.927315",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Details",

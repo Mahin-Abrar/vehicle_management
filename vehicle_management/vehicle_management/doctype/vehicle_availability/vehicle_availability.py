@@ -11,6 +11,14 @@ class VehicleAvailability(Document):
             vd = frappe.get_doc('Vehicle Details', doc.vehicle_chassis_no)
             vd.status="To Price"
             vd.save()
+    def on_cancel(doc):
+            doc.status=''
+            vdc=frappe.get_doc('Vehicle Details', doc.vehicle_chassis_no)
+            vdc.status='To Availability & Price'
+            vdc.save()
+                    
+
+                   
     # def on_submit(self):
     #         vd = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
     #         vd.status="To Price"

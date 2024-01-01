@@ -203,14 +203,13 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nTo Price\nCompleted",
-   "read_only": 1
+   "options": "\nTo Price\nCompleted"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-01 12:05:13.613457",
+ "modified": "2024-01-01 16:41:23.268821",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",

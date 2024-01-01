@@ -27,6 +27,7 @@
   "item_amount",
   "totals_section",
   "grand_total",
+  "status",
   "amended_from"
  ],
  "fields": [
@@ -139,9 +140,11 @@
    "options": "VEH-PUR.-"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "is_sold",
    "fieldtype": "Check",
+   "ignore_user_permissions": 1,
    "label": "Is Sold"
   },
   {
@@ -155,12 +158,21 @@
   {
    "fieldname": "column_break_vmsb3",
    "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "\nSold\nUn Solds",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-20 12:05:25.498395",
+ "modified": "2024-01-01 18:01:56.597694",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Price",
