@@ -5,7 +5,13 @@ import frappe
 from frappe.model.document import Document
 
 class VehicleDetails(Document):
-      pass
+        def on_submit(self):
+            self.get_indicator()
+        def get_indicator(self):
+            doc = frappe.get_doc('Vehicle Details', self.chassis_number)
+            doc.status="To Availability & Price"
+            doc.save()
+      # pass
       # def on_submit(self):
       #       doc=frappe.get_doc("Vehicle Details",self.chassis_number)
       #       doc.level="To Availability & Price"
@@ -13,3 +19,4 @@ class VehicleDetails(Document):
 	# def validate(self):
       #       if frappe.db.exists("Vehicle Details",self.chassis_number):    
       #             frappe.throw('ase already kana')
+     

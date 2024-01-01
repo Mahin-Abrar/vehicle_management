@@ -1,15 +1,16 @@
-// green, cyan, blue, orange, yellow, gray, grey, red, pink, darkgrey, purple, light-blue
+// // green, cyan, blue, orange, yellow, gray, grey, red, pink, darkgrey, purple, light-blue
 frappe.listview_settings['Vehicle Details'] = {
-    // add_fields:["status"],
     get_indicator(doc){
-      // console.log(doc)
-        if (doc.docstatus == 1) {
-			return [__("To Availability & Price"), "pink"];
-  //   } else if(doc.docstatus ==0){
-  //     return [__("To Price"), "pink"];
-  // }else if(doc.docstatus ==-1){
-  //   return [__("To Availability & Price"), "pink"];
-  // }
-}
-}
+      let field = doc.status;
+        if (doc.status=="Completed") {
+			return [__(field), "cyan", "status,=,Completed"];
+        }
+  }
 };
+
+// p_key=frappe.db.get_list('Vehicle Availability',filters={
+//   docstatus:1,
+//   },pluck='name')
+// doc2=frappe.get_doc('Vehicle Availability',p_key)
+// console.log(doc2.docstatus)
+// doc2.save()

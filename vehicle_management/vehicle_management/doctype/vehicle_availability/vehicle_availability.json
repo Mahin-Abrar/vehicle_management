@@ -24,13 +24,14 @@
   "cc",
   "description",
   "car_availability_status_tab",
-  "status",
+  "vehicle_status",
   "port_location",
   "shed_number",
   "ship_details",
   "in_house_address",
   "workshop_address",
   "other",
+  "status",
   "amended_from"
  ],
  "fields": [
@@ -127,47 +128,41 @@
    "label": "Car Availability Status"
   },
   {
-   "depends_on": "eval:doc.status==\"Port\"",
+   "depends_on": "eval:doc.vehicle_status==\"Port\"",
    "fieldname": "port_location",
    "fieldtype": "Link",
    "label": "Port Location",
    "options": "Port Location"
   },
   {
-   "depends_on": "eval:doc.status==\"Port\"",
+   "depends_on": "eval:doc.vehicle_status==\"Port\"",
    "fieldname": "shed_number",
    "fieldtype": "Data",
    "label": "Shed Number"
   },
   {
-   "depends_on": "eval:doc.status==\"Onship\"",
+   "depends_on": "eval:doc.vehicle_status==\"Onship\"",
    "fieldname": "ship_details",
    "fieldtype": "Data",
    "label": "Ship Details"
   },
   {
-   "depends_on": "eval:doc.status==\"Inhouse\"",
+   "depends_on": "eval:doc.vehicle_status==\"Inhouse\"",
    "fieldname": "in_house_address",
    "fieldtype": "Data",
    "label": "In House Address"
   },
   {
-   "depends_on": "eval:doc.status==\"Workshop\"",
+   "depends_on": "eval:doc.vehicle_status==\"Workshop\"",
    "fieldname": "workshop_address",
    "fieldtype": "Data",
    "label": "Workshop Address"
   },
   {
-   "depends_on": "eval:doc.status==\"Other\"",
+   "depends_on": "eval:doc.vehicle_status==\"Other\"",
    "fieldname": "other",
    "fieldtype": "Data",
    "label": "Other"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "\nPort\nOnship\nInhouse\nWorkshop\nOther"
   },
   {
    "fieldname": "amended_from",
@@ -194,12 +189,28 @@
    "label": "Customer",
    "options": "Customer",
    "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_status",
+   "fieldtype": "Select",
+   "label": "Vehicle Status",
+   "options": "\nPort\nOnship\nInhouse\nWorkshop\nOther"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nTo Price\nCompleted",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-12-20 11:55:05.393159",
+ "modified": "2024-01-01 12:05:13.613457",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",
