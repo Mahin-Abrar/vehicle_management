@@ -34,9 +34,9 @@ frappe.ui.form.on('Vehicle Price', {
                 chassis_no: chassisNo
             },
             callback: function(response) {
-                if (response.message==0){
+                if (!response.message==1){
                     frm.set_value({'vehicle_chassis_no':''})
-                    frappe.throw("Not in Vehicle Availability");
+                    frappe.throw("Duplicate found in Vehicle Availability or Not available in Vehicle Availability");
                 }
             }
         });
