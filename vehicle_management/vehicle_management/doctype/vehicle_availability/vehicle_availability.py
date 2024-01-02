@@ -21,6 +21,7 @@ class VehicleAvailability(Document):
             
     def rmv_details_value(self):
             self.status=''
+            self.save()
             vdc=frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
             vdc.status='To Availability & Price'
-            vdc.save() 
+            vdc.save()

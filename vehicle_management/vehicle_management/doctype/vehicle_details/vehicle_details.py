@@ -7,7 +7,11 @@ from frappe.model.document import Document
 class VehicleDetails(Document):
         def on_submit(self):
             self.status_indicator()
+        def on_cancel(self):
+            self.status="Cancelled"
         def status_indicator(self):
-            doc = frappe.get_doc('Vehicle Details', self.chassis_number)
-            doc.status="To Availability & Price"
-            doc.save()
+            self.status="To Availability & Price"
+            self.save()
+        def status_cancel(self):
+            self.status=""
+            self.save()

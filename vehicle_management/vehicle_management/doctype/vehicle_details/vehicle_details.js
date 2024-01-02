@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Vehicle Details', {
-	// on_submit: function(frm){
-    // statusChanger(frm)
-	// }
+	refresh: function(frm){
+		console.log("Vehicle Details")
+	}
 });

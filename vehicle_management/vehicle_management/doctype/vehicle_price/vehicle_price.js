@@ -23,11 +23,28 @@ frappe.ui.form.on('Vehicle Price', {
     },
     onload:function(frm){
         filtering (frm);
+    },
+    vehicle_chassis_no: function(frm) {
+        var chassisNo = frm.doc.vehicle_chassis_no;
+
+        // Check if chassis number exists in Vehicle Availability doctype
+        frappe.call({
+            method: 'vehicle_management.vehicle_management.doctype.vehicle_price.vehicle_price.check_vehicle_availability',
+            args: {
+                chassis_no: chassisNo
+            },
+            callback: function(response) {
+                if (response.message==0){
+                    frm.set_value({'vehicle_chassis_no':''})
+                    frappe.throw("Not in Vehicle Availability");
+                }
+            }
+        });
     }
 });
 
 //calculation for the child table
-frappe.ui.form.on('Other Vehicle Items', {
+frappe.ui.form.on('Other Vehicle Items',{
     quantity: function(frm, cdt, cdn) {
         amount_child(frm, cdt, cdn);
         updateTotalAmount(frm);

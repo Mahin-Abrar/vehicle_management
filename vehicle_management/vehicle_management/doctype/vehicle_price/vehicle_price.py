@@ -21,7 +21,10 @@ class VehiclePrice(Document):
             self.rmv_vehicle_availability()
             self.status=''
             
-#####functions####          
+#####functions####      
+
+
+    
     def add_vehicle_details(self):
          vd_doc = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
          vd_doc.customer = self.customer
@@ -67,3 +70,16 @@ class VehiclePrice(Document):
             for row in self.get('other_vehicle_items'):
               row.amount=row.quantity*row.rate
               self.other_items_total += row.amount        
+              
+              
+
+
+@frappe.whitelist()
+def check_vehicle_availability(chassis_no):
+        print("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss")
+        print(chassis_no)
+        ##Check if chassis number exists in Vehicle Availability doctype
+        p_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':chassis_no},pluck='name')
+        doc2= frappe.get_doc('Vehicle Availability',p_key)
+        exists=doc2.docstatus
+        return exists

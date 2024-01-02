@@ -8,6 +8,15 @@ frappe.ui.form.on('Vehicle Availability', {
 		onload:function(frm){
 			settingQuery(frm)
 		},
+		refresh: function(frm) {
+			  frm.add_custom_button(__('Vehicle Details'),function(){
+				frappe.msgprint(frm.doc.email);
+			}, __("Go To"));
+
+			frm.add_custom_button(__('Vehicle Price'),function(){
+			  frappe.msgprint(frm.doc.email);
+		  }, __("Go To"));
+		}
 
 });
 
