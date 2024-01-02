@@ -5,27 +5,22 @@ import frappe
 from frappe.model.document import Document
 
 class VehicleAvailability(Document):
-    def on_submit(doc):
-            doc.status="To Price"
-            doc.save()
-            vd = frappe.get_doc('Vehicle Details', doc.vehicle_chassis_no)
+    def on_submit(self):
+            self.set_details_value()
+    def on_cancel(self):
+            self.rmv_details_value()
+            
+            
+            
+    def set_details_value(self):
+            self.status="To Price"
+            self.save()
+            vd = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
             vd.status="To Price"
             vd.save()
-    def on_cancel(doc):
-            doc.status=''
-            vdc=frappe.get_doc('Vehicle Details', doc.vehicle_chassis_no)
+            
+    def rmv_details_value(self):
+            self.status=''
+            vdc=frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
             vdc.status='To Availability & Price'
-            vdc.save()
-                    
-
-                   
-    # def on_submit(self):
-    #         vd = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
-    #         vd.status="To Price"
-    #         vd.save()
-           
-    # def get_indicator(self):
-    #         p_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')
-    #         doc2= frappe.get_doc('Vehicle Availability',p_key)
-    #         doc2.status="To Price"
-    #         doc2.save()
+            vdc.save() 

@@ -11,8 +11,6 @@ frappe.ui.form.on('Vehicle Availability', {
 
 });
 
-
-
 function settingQuery(frm) {
 	frm.set_query("vehicle_chassis_no", function() {
 		return {
