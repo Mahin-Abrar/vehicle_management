@@ -152,14 +152,14 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nTo Availability & Price\nTo Price\nCompleted",
+   "options": "\nTo Availability & Price\nTo Price\nCompleted\nCancelled",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-02 11:23:36.091422",
+ "modified": "2024-01-03 15:26:33.410843",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Details",

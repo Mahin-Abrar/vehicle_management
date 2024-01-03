@@ -2,6 +2,8 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe.query_builder import DocType
+from frappe import _
 from frappe.model.document import Document
 from frappe import get_all, get_doc
 
@@ -10,6 +12,7 @@ from frappe import get_all, get_doc
 class VehiclePrice(Document):
     def validate(self):
         self.total_calculations()
+        # self.amended_validation()
                 
     def on_submit(self):
         self.add_vehicle_details()
@@ -24,13 +27,27 @@ class VehiclePrice(Document):
 #####functions####      
 
 
+#     def amended_validation(self):
+#             key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')
+#             docVA= frappe.get_doc('Vehicle Availability',key)
+#             va_chassis=docVA.vehicle_chassis_no
+#             my_chassis=self.vehicle_chassis_no
+#             vehicle_availbility=frappe.qb.DocType('Vehicle Availability')
+#             query=(
+#                     frappe.qb.from_(vehicle_availbility)
+#                     .select(vehicle_availbility.amended_from)
+#                     .where(vehicle_availbility.vehicle_chassis_no==my_chassis)
+#             ).run(as_dict=True)
+#             print (query)
+            
+    
     
     def add_vehicle_details(self):
-         vd_doc = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
-         vd_doc.customer = self.customer
-         vd_doc.status="Completed"
-         vd_doc.is_sold=self.is_sold
-         vd_doc.save()
+         vehicle_details_doc = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
+         vehicle_details_doc.customer = self.customer
+         vehicle_details_doc.status="Completed"
+         vehicle_details_doc.is_sold=self.is_sold
+         vehicle_details_doc.save()
          
     def sold_unsold(self):
         if self.is_sold==True:
@@ -40,29 +57,29 @@ class VehiclePrice(Document):
         self.save()
          
     def add_vehicle_availability(self):
-            p_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')
-            doc2= frappe.get_doc('Vehicle Availability',p_key)
-            doc2.customer = self.customer
-            doc2.status="Completed"
-            doc2.is_sold = self.is_sold
-            doc2.save()
+            primary_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':self.vehicle_chassis_no},pluck='name')
+            vehecle_availability_doc= frappe.get_doc('Vehicle Availability',primary_key)
+            vehecle_availability_doc.customer = self.customer
+            vehecle_availability_doc.status="Completed"
+            vehecle_availability_doc.is_sold = self.is_sold
+            vehecle_availability_doc.save()
         
     def rmv_vehicle_details(self):
-            doc = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
-            doc.customer=''
-            doc.is_sold = False
-            doc.status='To Price'
-            doc.save()
+            vehecle_details_rmv = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
+            vehecle_details_rmv.customer=''
+            vehecle_details_rmv.is_sold = False
+            vehecle_details_rmv.status='To Price'
+            vehecle_details_rmv.save()
         
     def rmv_vehicle_availability(self):
-            p_key=frappe.db.get_list('Vehicle Availability',filters={
+            primary_key=frappe.db.get_list('Vehicle Availability',filters={
                     'vehicle_chassis_no':self.vehicle_chassis_no
                     },pluck='name')
-            doc2=frappe.get_doc('Vehicle Availability',p_key)
-            doc2.customer=''
-            doc2.is_sold=False
-            doc2.status='To Price'
-            doc2.save()
+            vehicle_availability_rmv=frappe.get_doc('Vehicle Availability',primary_key)
+            vehicle_availability_rmv.customer=''
+            vehicle_availability_rmv.is_sold=False
+            vehicle_availability_rmv.status='To Price'
+            vehicle_availability_rmv.save()
             
     def total_calculations(self):
             self.sale_price = self.customer_price+self.company_price
@@ -79,7 +96,7 @@ def check_vehicle_availability(chassis_no):
         print("ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss")
         print(chassis_no)
         ##Check if chassis number exists in Vehicle Availability doctype
-        p_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':chassis_no},pluck='name')
-        doc2= frappe.get_doc('Vehicle Availability',p_key)
-        exists=doc2.docstatus
+        primary_key=frappe.db.get_list('Vehicle Availability',filters={'vehicle_chassis_no':chassis_no},pluck='name')
+        vehecle_availability_status= frappe.get_doc('Vehicle Availability',primary_key)
+        exists=vehecle_availability_status.docstatus
         return exists

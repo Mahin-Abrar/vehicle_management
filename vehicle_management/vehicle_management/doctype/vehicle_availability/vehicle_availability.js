@@ -24,7 +24,8 @@ function settingQuery(frm) {
 	frm.set_query("vehicle_chassis_no", function() {
 		return {
 			"filters": {
-				is_sold:false
+				is_sold:false,
+				docstatus:1
 			}
 		};
 	});

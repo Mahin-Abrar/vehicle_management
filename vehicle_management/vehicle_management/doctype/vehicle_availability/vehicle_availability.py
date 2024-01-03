@@ -15,12 +15,12 @@ class VehicleAvailability(Document):
     def set_details_value(self):
             self.status="To Price"
             self.save()
-            vd = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
-            vd.status="To Price"
-            vd.save()
+            vehecle_details = frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
+            vehecle_details.status="To Price"
+            vehecle_details.save()
             
     def rmv_details_value(self):
             self.status=''
-            vdc=frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
-            vdc.status='To Availability & Price'
-            vdc.save()
+            cancel_vehecle_details=frappe.get_doc('Vehicle Details', self.vehicle_chassis_no)
+            cancel_vehecle_details.status='To Availability & Price'
+            cancel_vehecle_details.save()

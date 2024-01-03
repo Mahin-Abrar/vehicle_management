@@ -9,7 +9,7 @@ frappe.listview_settings['Vehicle Details'] = {
       }
       else if (doc.status=="Completed") {
         return [__("Completed"), "green", "status,=,Completed"];
-      }else if (doc.status==""){
+      }else if (doc.status==""||doc.status=="Cancelled"){
         return [__("Cancelled"), "red", "status,=,Cancelled"];
       }
   }

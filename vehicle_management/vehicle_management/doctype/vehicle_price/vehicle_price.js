@@ -71,6 +71,7 @@ frappe.ui.form.on('Other Vehicle Items',{
 //functoin for query
 function filtering(frm) {
     frm.set_query("vehicle_chassis_no", function() {
+
         return {
             "filters": {
                 is_sold:false,
