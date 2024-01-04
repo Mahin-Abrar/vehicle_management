@@ -75,6 +75,7 @@ function filtering(frm) {
         return {
             "filters": {
                 is_sold:false,
+                docstatus:1
             }
         };
     });
