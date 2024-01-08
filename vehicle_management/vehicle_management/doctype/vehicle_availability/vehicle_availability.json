@@ -10,6 +10,7 @@
  "field_order": [
   "vehicle_info_tab",
   "is_sold",
+  "status",
   "customer",
   "naming_series",
   "posting_date",
@@ -31,7 +32,6 @@
   "in_house_address",
   "workshop_address",
   "other",
-  "status",
   "amended_from"
  ],
  "fields": [
@@ -48,6 +48,7 @@
    "options": "CAR.-"
   },
   {
+   "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -200,19 +201,17 @@
    "allow_on_submit": 1,
    "fieldname": "status",
    "fieldtype": "Select",
-   "hidden": 1,
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "\nTo Price\nCompleted",
-   "read_only": 1
+   "options": "\nDraft\nTo Price\nCompleted\nDraft"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-03 09:51:39.062068",
+ "modified": "2024-01-04 15:10:26.284400",
  "modified_by": "Administrator",
  "module": "Vehicle Management",
  "name": "Vehicle Availability",

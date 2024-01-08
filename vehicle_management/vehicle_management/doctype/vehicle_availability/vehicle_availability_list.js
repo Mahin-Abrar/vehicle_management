@@ -6,5 +6,9 @@ frappe.listview_settings['Vehicle Availability']={
         else if (doc.docstatus==1 && doc.status=="Completed") {
             return [__("Completed"), "green", "status,=,Completed"];
           }
+          else if (doc.status=="Draft") {
+            return [__("Draft"), "red", "status,=,Draft"];
+          }
+          
     }
 }
