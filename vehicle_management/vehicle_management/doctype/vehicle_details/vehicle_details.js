@@ -1,16 +1,48 @@
+
 // Copyright (c) 2023, Mahin Abrar and contributors
 // For license information, please see license.txt
+
 
 
 frappe.ui.form.on('Vehicle Details', {
     refresh: function(frm) {
 		if (frm.doc.docstatus==1){
-        frm.add_custom_button(__("Create"), function() {
-			let newDoc = frappe.new_doc('Vehicle Availability');
-            frappe.set_route('Form', 'Vehicle Availability', newDoc.doc.name);
-			let teste=frappe.db.get_value("Vehicle Availability", newDoc.doc.name,"status")
-			console.log(teste);
-        },__("Create")).css({'background-color': 'white', 'color': 'black'});
+			frm.add_custom_button(__('Vehicle Availability'), 
+			() => make_vehicle_availability(frm), 
+			__("Create"));
+			cur_frm.page.set_inner_btn_group_as_primary(__("Create"));
+		  }
+			  
 		}
-	}
 });
+ 
+let make_vehicle_availability = (frm) => {
+	return frappe.call({
+        method: "vehicle_management.vehicle_management.doctype.vehicle_details.vehicle_details.make_vehicle_availability",
+        freeze: true,
+        freeze_message: __("Creating Vehicle Availability ..."),
+        args: {
+            source_name: frm.doc.name,
+        },
+        freeze: true,
+        callback: function (r) {
+            if (!r.exc) {
+                frappe.model.sync(r.message);
+                frappe.set_route("Form",r.message.doctype, r.message.name);
+            }
+        },
+    });
+}
+
+// function next_doc (frm) {
+// 	frappe.call({
+// 		method: 'vehicle_management.vehicle_management.doctype.vehicle_details.vehicle_details.make_vehicle_availability',
+// 		args: {
+// 			source_name: frm.doc.chassis_no
+// 		},
+// 		callback: function(response) {
+// 			console.log(response);
+// 			frm.set_value({'vehicle_chassis_no':response.message.vehicle_chassis_no})
+// 		}
+// 	});
+// }

@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.model.mapper import get_mapped_doc
 
 class VehicleAvailability(Document):
     def on_submit(self):
@@ -25,3 +26,23 @@ class VehicleAvailability(Document):
             cancel_vehecle_details.status='To Availability & Price'
             self.status=''
             cancel_vehecle_details.save()
+            
+            
+@frappe.whitelist()
+def make_vehicle_price(source_name, target_doc=None):
+    doc = get_mapped_doc(
+        "Vehicle Availability",
+        source_name,
+        {
+            "Vehicle Availability": {
+                "doctype": "Vehicle Price",
+                "field_map": {
+                    "vehicle_chassis_no": "vehicle_chassis_no",
+                },
+                "validation": {
+                    "docstatus": ["=", 1]
+                }
+            }
+        }, target_doc)
+
+    return doc            
