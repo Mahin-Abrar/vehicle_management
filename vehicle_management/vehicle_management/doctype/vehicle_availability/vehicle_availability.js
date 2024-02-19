@@ -36,6 +36,7 @@ let make_vehicle_availability = (frm) => {
         get_query_filters: {
             docstatus: 1,
             status:"To Availability & Price",
+            is_sold: 0,
         },
     });
 }
