@@ -16,14 +16,16 @@ frappe.ui.form.on('Vehicle Availability', {
             cur_frm.page.set_inner_btn_group_as_primary(__("Create"));
         };
         if (frm.doc.docstatus == 0) {
-            frm.add_custom_button(__('Vehicle Details'),
-            () =>make_vehicle_availability(frm),
-             __("Get Items From"));
-        };
+            frm.add_custom_button(__('Vehicle Details'), () => {
+                clearField(frm);
+                setTimeout(() => make_vehicle_availability(frm), 250);
+            }, __("Get Items From"));
+        }
     }
 });
 
 let make_vehicle_availability = (frm) => {
+    
     erpnext.utils.map_current_doc({
         method: "vehicle_management.vehicle_management.doctype.vehicle_details.vehicle_details.make_vehicle_availability",
         source_doctype: "Vehicle Details",
@@ -40,7 +42,7 @@ let make_vehicle_availability = (frm) => {
 
 
 let clearField=(frm)=>{
-    frm.doc.vehicle_chassis_no="";
+    frm.set_value({'vehicle_chassis_no':""});
 }
 
  
