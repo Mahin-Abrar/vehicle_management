@@ -18,32 +18,24 @@ class VehicleDetails(Document):
             self.save()
 
 
+
+
+
 @frappe.whitelist()
-def make_vehicle_availability(source_name, target_doc=None):
-    doc = get_mapped_doc(
-        "Vehicle Details",
-        source_name,
-        {
-            "Vehicle Details": {
-                "doctype": "Vehicle Availability",
-                "field_map": {
-                    "name": "vehicle_chassis_no",
-                },
-                "validation": {
-                    "docstatus": ["=", 1]
-                }
-            }
-        }, target_doc)
-
-    return doc
-# @frappe.whitelist()
-# def make_vehicle_availability(source_name, target_doc=None):
-# 	target_doc = frappe.model.mapper.get_mapped_doc("Vehicle Details", source_name,
-# 		{"Vehicle Details": {
-# 			"doctype": "Vehicle Availability",
-# 			"field_map": {
-# 				"name": "vehicle_chassis_no",
-# 			}
-# 		}}, target_doc)
-
-# 	return target_doc
+def make_vehicle_availability(source_name, target_doc=None, args=None):
+	doclist = get_mapped_doc(
+		"Vehicle Details",
+		source_name,
+		{
+			"Vehicle Details": {
+				"doctype": "Vehicle Availability",
+				# "validation": {"status": ["=", "To Availability & Price"]},
+				"field_map":[
+     				["chassis_number","vehicle_chassis_no"],
+				]
+			},
+   	},
+  target_doc
+	)
+	
+	return doclist
