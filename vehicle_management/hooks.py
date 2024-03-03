@@ -33,7 +33,7 @@ doctype_js = {"Material Request" : "public/js/stock/material_request.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
+# doctype_calendar_js = {"Task" : "public/js/projects/tasks/task_calendar.js"}
 # Home Pages
 # ----------
 
@@ -224,6 +224,7 @@ fixtures = [
                 "in",
                 [
                     "Material Request",
+                    # 'Tasks'
                     
                 ],
             ]
@@ -237,6 +238,7 @@ fixtures = [
                 "in",
                 [
                     "Material Request"  ,
+                    # "Tasks"
                 ],
             ]
         ],
