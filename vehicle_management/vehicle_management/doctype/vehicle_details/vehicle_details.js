@@ -12,10 +12,29 @@ frappe.ui.form.on('Vehicle Details', {
 			__("Create"));
 			cur_frm.page.set_inner_btn_group_as_primary(__("Create"));
 		  }
-			  
-		}
+		},
 });
- 
+
+frappe.ui.form.ControlLink.link_options = function(link) {
+    // if (link.df.fieldname === "car_model") {
+        return [
+            {
+                html: "<span class='text-primary link-option'>"
+                    + "<i class='fa fa-car' style='margin-right: 5px;'></i> "
+                    + __("Need for pinik?")
+                    + "</span>",
+                label: __("Custom Link Option"),
+                value: "custom__link_option",
+                action: () => {
+                    frappe.msgprint("pinik Happened!");
+                }
+            }
+        ];
+    
+};
+
+
+
 let make_vehicle_availability = (frm) => {
 	return frappe.call({
         method: "vehicle_management.vehicle_management.doctype.vehicle_details.vehicle_details.make_vehicle_availability",
