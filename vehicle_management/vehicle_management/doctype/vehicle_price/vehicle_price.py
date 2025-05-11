@@ -6,14 +6,12 @@ from frappe.query_builder import DocType
 from frappe import _
 from frappe.model.document import Document
 from frappe import get_all, get_doc
-from deep_translator import GoogleTranslator
+
 
 
 class VehiclePrice(Document):
     def validate(self):
         self.total_calculations()
-        translated = GoogleTranslator(source='auto', target='ar').translate("Mahin")  # output -> Weiter so, du bist großartig
-        print(translated)
         print(">>>>>>>>>>>>>>>")
         
                 
